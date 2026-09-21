@@ -1,0 +1,71 @@
+@model onlineStore.DTOs.RegisterDto
+
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+<div class="row justify-content-center my-5">
+    <div class="col-md-7 col-lg-5 col-xl-4">
+        <div class="card shadow border-0 rounded-4 overflow-hidden">
+            <div class="card-header bg-dark text-white text-center py-4">
+                <div class="btn-lg-square bg-primary text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                    <i class="fas fa-user-plus fa-lg"></i>
+                </div>
+                <h3 class="mb-0 text-white">Create Account</h3>
+                <small class="text-muted">Register to start shopping and tracking orders</small>
+            </div>
+
+            <div class="card-body p-4 p-lg-5">
+                <form asp-action="Register" asp-controller="Account" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 small mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="FullName" class="form-label fw-bold">Full Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light"><i class="fas fa-user text-muted"></i></span>
+                            <input asp-for="FullName" class="form-control" placeholder="e.g. Ali Ahmad" autofocus />
+                        </div>
+                        <span asp-validation-for="FullName" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label fw-bold">Email Address</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light"><i class="fas fa-envelope text-muted"></i></span>
+                            <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Password" class="form-label fw-bold">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light"><i class="fas fa-key text-muted"></i></span>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Create a strong password" />
+                        </div>
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+
+                    <div class="alert alert-info py-2 px-3 small mb-4">
+                        <i class="fas fa-info-circle me-1"></i> New accounts require administrator approval before logging in.
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill w-100 shadow-sm mb-3">
+                        <i class="fas fa-check-circle me-2"></i> Register Account
+                    </button>
+                </form>
+
+                <div class="text-center pt-3 border-top">
+                    <span class="text-muted">Already have an account?</span>
+                    <a asp-controller="Account" asp-action="Login" class="fw-bold ms-1 text-primary text-decoration-none">
+                        Sign In
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

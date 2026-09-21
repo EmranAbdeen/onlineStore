@@ -1,0 +1,44 @@
+@model onlineStore.Models.Category
+
+@{
+    ViewData["Title"] = "Add New Category";
+}
+
+<div class="row justify-content-center my-5">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+            <div class="card-header bg-dark text-white p-4">
+                <h3 class="mb-1 text-white"><i class="fas fa-folder-plus text-primary me-2"></i> Add Category</h3>
+                <p class="text-muted small mb-0">Create a new category for products in the store</p>
+            </div>
+
+            <div class="card-body p-4 p-lg-5">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-3"></div>
+
+                    <div class="mb-4">
+                        <label asp-for="Name" class="form-label fw-bold">Category Name <span class="text-danger">*</span></label>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text bg-light"><i class="fas fa-tag text-muted"></i></span>
+                            <input asp-for="Name" class="form-control" placeholder="e.g. Smartphones" autofocus />
+                        </div>
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-flex gap-2 justify-content-end pt-3 border-top">
+                        <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+                            Cancel
+                        </a>
+                        <button type="submit" class="btn btn-primary rounded-pill px-5 py-2 shadow-sm">
+                            <i class="fas fa-save me-1"></i> Add Category
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
