@@ -71,6 +71,7 @@ The `Roles` table needs at least a `User` row (and typically an `Admin` row) sin
 ### Run the app
 
 ```bash
+git clone https://github.com/EmranAbdeen/onlineStore.git
 cd onlineStore
 dotnet restore
 dotnet ef database update   # apply migrations, if any are added
