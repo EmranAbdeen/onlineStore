@@ -10,7 +10,6 @@ namespace onlineStore.Controllers
     [AuthFilter("Admin")]
     public class AdminController : Controller
     {
-
         private readonly OnlineStoreDbContext _context;
         public AdminController(OnlineStoreDbContext context)
         {

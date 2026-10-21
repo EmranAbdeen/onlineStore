@@ -35,8 +35,6 @@ namespace onlineStore.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Product product)
         {
-            // منع بعض الخصائص من التأثير على ModelState.IsValid أثناء إنشاء الـ Product
-            // نعمل Validation
             ModelState.Remove(nameof(Product.Category));
             ModelState.Remove(nameof(Product.CartItems));
             ModelState.Remove(nameof(Product.ImageFile));
